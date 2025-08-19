@@ -107,6 +107,7 @@ void buscarElemento()
 {
 	int busca;
 	bool existe = false;
+	bool frase = true;
 	if (nElementos == 0)
 	{
 		cout << " Sem elementos para serem buscados \n";
@@ -116,20 +117,25 @@ void buscarElemento()
 	cout << "Digite o elemento a ser buscado: \n";
 	cin >> busca;
 
-
-	if (existe)
-	{
-		cout << "Elemento nunca adicionado \n";
-		return;
-	}
-
-	cout << "Elemento encontrado em: \n";
+	
 
 	for (int pos = 0; pos < nElementos; pos++)
 	{
 		if (busca == lista[pos])
 		{
+			if (frase)
+			{
+				cout << "Elemento encontrado em: \n";
+				frase = false;
+			}
+			existe = true;
 			cout << pos + 1 << endl;
 		}
+	}
+
+	if (!existe)
+	{
+		cout << "Elemento nunca adicionado \n";
+		return;
 	}
 }
